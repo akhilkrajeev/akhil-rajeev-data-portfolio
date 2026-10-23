@@ -4,9 +4,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Akhil K Rajeev — Data Analyst" },
-      { name: "description", content: "Portfolio of Akhil K Rajeev, Data Analyst with a B.Tech in Computer Science & Engineering." },
+      { name: "description", content: "Portfolio of Akhil K Rajeev, Data Analyst with a B.Tech in Computer Science & Engineering — from dashboards to GNN-based C2 beaconing detection." },
       { property: "og:title", content: "Akhil K Rajeev — Data Analyst" },
-      { property: "og:description", content: "Turning raw data into clear decisions. SQL, Python, Power BI, Excel." },
+      { property: "og:description", content: "Turning raw data into clear decisions. SQL, Python, Power BI, and graph neural networks for security analytics." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -14,7 +14,20 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const skills = ["SQL", "Python", "Pandas", "Power BI", "Tableau", "Excel", "Statistics", "Data Cleaning", "Data Visualization", "Machine Learning Basics"];
+const skills = ["SQL", "Python", "Pandas", "Power BI", "Tableau", "Excel", "Statistics", "Data Cleaning", "Data Visualization", "Machine Learning Basics", "Graph Neural Networks"];
+
+const featured = {
+  label: "FEATURED · SECURITY ANALYTICS",
+  t: "C2 Beaconing Detection using Graph Neural Networks",
+  d: "Modelled network traffic as a graph and trained a graph neural network to catch command-and-control (C2) beaconing — the quiet, repeated check-ins malware makes back to its server. That periodic, machine-like rhythm hides inside ordinary flow data, and the model learns to flag it.",
+  tags: ["Python", "Graph Neural Networks", "Network Security", "Traffic Analysis"],
+  steps: [
+    "NetFlow records become nodes",
+    "Host conversations become edges",
+    "The GNN learns beaconing rhythms",
+    "Suspicious hosts are ranked for review",
+  ],
+};
 
 const projects = [
   { n: "01", t: "Sales Performance Dashboard", d: "Interactive Power BI dashboard tracking revenue, regional trends and product KPIs.", tags: ["Power BI", "DAX"] },
@@ -84,6 +97,29 @@ function Index() {
 
       <section id="projects" className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="font-mono text-sm text-primary">// projects</h2>
+        <article className="mt-6 rounded-xl border border-primary/40 bg-card p-8">
+          <div className="grid gap-10 md:grid-cols-[1.5fr_1fr] md:items-center">
+            <div>
+              <p className="font-mono text-xs tracking-wider text-primary">{featured.label}</p>
+              <h3 className="mt-3 font-display text-2xl font-bold leading-snug md:text-3xl">{featured.t}</h3>
+              <p className="mt-4 max-w-2xl text-muted-foreground">{featured.d}</p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {featured.tags.map((t) => <span key={t} className="rounded bg-secondary px-2 py-1 font-mono text-xs text-secondary-foreground">{t}</span>)}
+              </div>
+            </div>
+            <div className="rounded-lg border border-border bg-background p-6">
+              <p className="font-mono text-xs text-muted-foreground">how it works</p>
+              <ol className="mt-5 space-y-4 text-sm">
+                {featured.steps.map((s, i) => (
+                  <li key={s} className="flex items-center gap-3">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-primary/40 font-mono text-xs text-primary">{i + 1}</span>
+                    <span className="text-muted-foreground">{s}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </article>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {projects.map((p) => (
             <article key={p.n} className="rounded-xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:border-primary">
