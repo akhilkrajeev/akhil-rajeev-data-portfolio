@@ -4,9 +4,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Akhil K Rajeev — Data Analyst" },
-      { name: "description", content: "Portfolio of Akhil K Rajeev, Data Analyst with a B.Tech in Computer Science & Engineering." },
+      { name: "description", content: "Portfolio of Akhil K Rajeev, Data Analyst with a B.Tech in Computer Science & Engineering — from dashboards to GNN-based C2 beaconing detection." },
       { property: "og:title", content: "Akhil K Rajeev — Data Analyst" },
-      { property: "og:description", content: "Turning raw data into clear decisions. SQL, Python, Power BI, Excel." },
+      { property: "og:description", content: "Turning raw data into clear decisions. SQL, Python, Power BI, and graph neural networks for security analytics." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
